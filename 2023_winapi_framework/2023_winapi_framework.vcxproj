@@ -180,6 +180,7 @@
     <ClInclude Include="EventMgr.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Game_Scene.h" />
+    <ClInclude Include="In_Game_Scene.h" />
     <ClInclude Include="KeyMgr.h" />
     <ClInclude Include="LeftPlayer.h" />
     <ClInclude Include="Monster.h" />
@@ -210,6 +211,7 @@
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="EventMgr.cpp" />
     <ClCompile Include="Game_Scene.cpp" />
+    <ClCompile Include="In_Game_Scene.cpp" />
     <ClCompile Include="KeyMgr.cpp" />
     <ClCompile Include="LeftPlayer.cpp" />
     <ClCompile Include="main.cpp" />
