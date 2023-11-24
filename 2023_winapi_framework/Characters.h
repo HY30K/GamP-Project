@@ -1,12 +1,12 @@
 #pragma once
-#include "Object.h"
+#include"Object.h"
 class Texture;
-class Title :
+class Characters :
 	public Object
 {
 public:
-	Title();
-	~Title();
+	Characters();
+	~Characters();
 public:
 	void Render(HDC _dc) override;
 private:
