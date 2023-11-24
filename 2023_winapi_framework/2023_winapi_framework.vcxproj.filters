@@ -65,6 +65,9 @@
     <Filter Include="Engine\04. Object\UIObject">
       <UniqueIdentifier>{4dffe982-0843-46a5-875a-c2f284cf295b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\04. Object\MainObject\GameSceneObject">
+      <UniqueIdentifier>{c1443359-e84a-4e91-acd1-06d807514687}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -160,6 +163,12 @@
     <ClInclude Include="Title.h">
       <Filter>Engine\04. Object\UIObject</Filter>
     </ClInclude>
+    <ClInclude Include="LeftPlayer.h">
+      <Filter>Engine\04. Object\MainObject\GameSceneObject</Filter>
+    </ClInclude>
+    <ClInclude Include="In_Game_Scene.h">
+      <Filter>Engine\05. Scene\MainScene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc">
@@ -249,6 +258,12 @@
     </ClCompile>
     <ClCompile Include="Title.cpp">
       <Filter>Engine\04. Object\UIObject</Filter>
+    </ClCompile>
+    <ClCompile Include="LeftPlayer.cpp">
+      <Filter>Engine\04. Object\MainObject\GameSceneObject</Filter>
+    </ClCompile>
+    <ClCompile Include="In_Game_Scene.cpp">
+      <Filter>Engine\05. Scene\MainScene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
