@@ -51,9 +51,11 @@ enum class EVENT_TYPE
 };
 
 enum class PlayerState {
-	MOVING,
-	ATTACKING,
 	IDLE,
+	MOVING,
+	JUMPING,
+	CRUNCHING,
+	ATTACKING,
 	DIE,
 	END
 };

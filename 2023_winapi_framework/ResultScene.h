@@ -1,7 +1,6 @@
 #pragma once
 #include "Scene.h"
-class Texture;
-class Start_Scene :
+class ResultScene :
     public Scene
 {
 public:
@@ -9,8 +8,5 @@ public:
     virtual void Update() override;
     virtual void Render(HDC _dc) override;
     virtual void Release() override;
-private:
-    Texture* m_pTex;
-    wstring GameName = L"집 가고 싶다";
 };
 

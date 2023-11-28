@@ -2,11 +2,12 @@
 #include "Title.h"
 #include "ResMgr.h"
 #include "Texture.h"
+#include "Core.h"
 
 Title::Title()
 	: m_pTex(nullptr)
 {
-	m_pTex = ResMgr::GetInst()->TexLoad(L"Title", L"Texture\\Bullet.bmp");
+	m_pTex = ResMgr::GetInst()->TexLoad(L"Title", L"Texture\\background1.bmp");
 }
 
 Title::~Title()
@@ -15,16 +16,13 @@ Title::~Title()
 
 void Title::Render(HDC _dc)
 {
-	Vec2 vPos = GetPos();
-	Vec2 vScale = GetScale();
-	int Width = m_pTex->GetWidth();
-	int Height = m_pTex->GetHeight();
+	POINT point = Core::GetInst()->GetResolution();
 
-	// 2. 색상 걷어내기
-	TransparentBlt(_dc
-		, (int)(vPos.x - vScale.x / 2)
-		, (int)(vPos.y - vScale.y / 2)
-		, Width, Height, m_pTex->GetDC()
-		, 0, 0, Width,Height, RGB(255,0,255));
+	StretchBlt(_dc
+	, 0
+	, 0
+	, point.x, point.y, m_pTex->GetDC()
+	, 0,0, point.x-800, point.y-480, SRCCOPY);
+
 	Component_Render(_dc);
 }

@@ -28,12 +28,24 @@ void Start_Scene::Update()
 	Scene::Update();
 	if(KEY_DOWN(KEY_TYPE::ENTER))
 		SceneMgr::GetInst()->LoadScene(L"Game_Scene");
-
 }
 
 void Start_Scene::Render(HDC _dc)
 {
 	Scene::Render(_dc);
+	
+	SetBkMode(_dc, 0);
+	
+	SetTextColor(_dc, RGB(255, 255, 255));
+	HFONT nameFont = CreateFont(80, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	SelectObject(_dc, nameFont);
+	TextOutW(_dc, (Core::GetInst()->GetResolution().x - GameName.size() * 60)/2, 20, GameName.c_str(), GameName.size());
+	HFONT infoFont = CreateFont(20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+	SelectObject(_dc, infoFont);
+	TextOutW(_dc, 525, 550, L"Press Enter To Start", 20);
+
+	DeleteObject(nameFont);
+	DeleteObject(infoFont);
 }
 
 void Start_Scene::Release()

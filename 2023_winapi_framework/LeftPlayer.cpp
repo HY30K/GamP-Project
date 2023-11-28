@@ -27,17 +27,17 @@ void LeftPlayer::Update()
 
 	if (KEY_PRESS(KEY_TYPE::W)) 
 	{
-		vPos.y += 1;
+		vPos.y -= 1;
 		//do jump
 	}
 	else if (KEY_PRESS(KEY_TYPE::A)) {
-
+		vPos.x -= 1;
 	}
 	else if (KEY_PRESS(KEY_TYPE::S)) {
 
 	}
 	else if (KEY_PRESS(KEY_TYPE::D)) {
-
+		vPos.x += 1;
 	}
 	else if (KEY_PRESS(KEY_TYPE::F)) { //공격키 1 => 임시로 해놓음
 
