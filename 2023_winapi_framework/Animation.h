@@ -16,6 +16,7 @@ public:
 public:
 	void Update();
 	void Render(HDC _dc);
+	void LeftRender(HDC _dc);
 public:
 	void Create(Texture* _pTex, Vec2 _vLT, Vec2 _vSliceSize, 
 		Vec2 _vStep, int _framecount, float _fDuration);

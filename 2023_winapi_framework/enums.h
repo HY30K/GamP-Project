@@ -49,11 +49,3 @@ enum class EVENT_TYPE
 	SCENE_CHANGE,
 	END
 };
-
-enum class PlayerState {
-	MOVING,
-	ATTACKING,
-	IDLE,
-	DIE,
-	END
-};
