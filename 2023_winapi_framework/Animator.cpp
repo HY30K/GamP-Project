@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "Animator.h"
 #include "Animation.h"
+#include "Object.h"
 Animator::Animator()
 	: m_pOwner(nullptr)
 	, m_pCurAnim(nullptr)
@@ -29,9 +30,14 @@ void Animator::Update()
 
 void Animator::Render(HDC _dc)
 {
+	m_pOwner->GetDir();
 	if (nullptr != m_pCurAnim)
 	{
-		m_pCurAnim->Render(_dc);
+		m_pCurAnim->LeftRender(_dc);
+		/*if (m_pOwner->GetDir() == false)
+			m_pCurAnim->LeftRender(_dc);
+		else if (m_pOwner->GetDir() == true)
+			m_pCurAnim->LeftRender(_dc);*/
 	}
 }
 
@@ -40,7 +46,7 @@ void Animator::CreateAnim(const wstring& _strName, Texture* _pTex, Vec2 _vLT, Ve
 	Animation* pAnim = FindAnim(_strName);
 	if (pAnim != nullptr)
 		return;
-	
+
 	pAnim = new Animation;
 	pAnim->SetName(_strName);
 	pAnim->m_pAnimator = this;

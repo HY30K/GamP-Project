@@ -6,9 +6,9 @@ class Object
 public:
 	Object();
 	virtual ~Object();
-//public:	// 크기, 위치
-	//POINT m_ptPos;
-	//POINT m_ptScale;
+	//public:	// 크기, 위치
+		//POINT m_ptPos;
+		//POINT m_ptScale;
 public:
 	virtual void Update();
 	virtual void FinalUpdate() final;
@@ -20,10 +20,15 @@ public:
 public:
 	void SetPos(Vec2 _vPos) { m_vPos = _vPos; }
 	void SetScale(Vec2 _vScale) { m_vScale = _vScale; }
+	void SetDir(bool _bDir) { m_bDir = _bDir; }
 	const Vec2& GetPos() const { return m_vPos; }
 	const Vec2& GetScale() const { return m_vScale; }
-	Collider* GetCollider() const 
-	{ return m_pCollider; }
+	const bool& GetDir() const { return m_bDir; }
+
+	Collider* GetCollider() const
+	{
+		return m_pCollider;
+	}
 	Animator* GetAnimator()
 	{
 		return m_pAnimator;
@@ -31,6 +36,8 @@ public:
 	const wstring& GetName() const { return m_strName; }
 	void SetName(wstring _name) { m_strName = _name; }
 	bool GetIsDead() const { return !m_IsAlive; }
+	//bool GetDir() const { return !m_bDir; }
+	//void SetDir() { m_bDir = false; }
 private:
 	void SetDead() { m_IsAlive = false; }
 	friend class EventMgr;
@@ -44,5 +51,6 @@ private:
 	wstring m_strName; // 이름.
 	bool m_IsAlive;
 	Animator* m_pAnimator;
+	bool m_bDir;
 };
 

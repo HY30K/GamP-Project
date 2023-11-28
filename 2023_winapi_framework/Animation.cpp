@@ -58,6 +58,26 @@ void Animation::Render(HDC _dc)
 		,RGB(255,0,255));
 }
 
+void Animation::LeftRender(HDC _dc)
+{
+	Object* pObj = m_pAnimator->GetObj();
+	Vec2 vPos = pObj->GetPos();
+
+	// 오프셋 적용
+	vPos = vPos + m_vecAnimFrame[m_CurFrame].vOffset;
+	StretchBlt(_dc
+		, (int)(vPos.x - m_vecAnimFrame[m_CurFrame].vSlice.x / 2.f)
+		, (int)(vPos.y - m_vecAnimFrame[m_CurFrame].vSlice.y / 2.f)
+		, (int)(m_vecAnimFrame[m_CurFrame].vSlice.x)
+		, (int)(m_vecAnimFrame[m_CurFrame].vSlice.y)
+		, m_pTex->GetDC()
+		, (int)(m_vecAnimFrame[m_CurFrame].vLT.x)
+		, (int)(m_vecAnimFrame[m_CurFrame].vLT.y)
+		, (int)(m_vecAnimFrame[m_CurFrame].vSlice.x)
+		, (int)(m_vecAnimFrame[m_CurFrame].vSlice.y)
+		, SRCCOPY);
+}
+
 void Animation::Create(Texture* _pTex, Vec2 _vLT, Vec2 _vSliceSize, Vec2 _vStep, int _framecount, float _fDuration)
 {
 	m_pTex = _pTex;
