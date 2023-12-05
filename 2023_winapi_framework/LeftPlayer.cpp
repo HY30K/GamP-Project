@@ -2,7 +2,7 @@
 #include "LeftPlayer.h"
 #include "KeyMgr.h"
 #include "TimeMgr.h"
-#include "Bullet.h"
+#include "HPBar.h"
 #include "SceneMgr.h"
 #include "Scene.h"
 #include "Texture.h"
@@ -11,8 +11,11 @@
 #include "Collider.h"
 #include "Animator.h"
 #include "Animation.h"
+#include "HPBar.h"
+#include "Core.h"
 LeftPlayer::LeftPlayer()
-	: m_pTex(nullptr)
+	: m_pTex(nullptr),
+	p_HPBar (new HPBar)
 {
 	m_pTex = ResMgr::GetInst()->TexLoad(L"Player1", L"Player\\Player1.bmp");
 	CreateCollider();
@@ -82,6 +85,22 @@ void LeftPlayer::Render(HDC _dc)
 	Component_Render(_dc);
 }
 
-void LeftPlayer::GetDamage(UINT damage)
+void LeftPlayer::GetDamage(int damage = 0)
 {
+	int leftHP = health - damage;
+	p_HPBar->SetHP(leftHP);
+	if (leftHP <= 0) {
+		Core::GetInst()->SetWinner(false);
+		SceneMgr::GetInst()->LoadScene(L"Resultscene");
+	}
+}
+
+void LeftPlayer::SetHPBar()
+{
+	Vec2 vBulletPos = GetPos();
+	vBulletPos.y -= GetScale().y / 2.f;
+	p_HPBar->SetPos(vBulletPos);
+	p_HPBar->SetScale(Vec2(25.f, 25.f));
+	p_HPBar->SetName(L"Left_HP_BAR");
+	SceneMgr::GetInst()->GetCurScene()->AddObject(p_HPBar, OBJECT_GROUP::UI);
 }

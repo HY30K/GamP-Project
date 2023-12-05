@@ -1,5 +1,6 @@
 #pragma once
 #include "Object.h"
+#include "HPBar.h"
 class Texture;
 class LeftPlayer
 	: public Object
@@ -13,12 +14,12 @@ public:
 	void Render(HDC _dc);
 
 public:
-	void GetDamage(UINT damage);
-
+	void GetDamage(int damage);
+	void SetHPBar();
 private:
-	//UINT health;
+	int health;
 	//float coolTime; //다음 공격까지의 시간
-
+	HPBar* p_HPBar;
 	Texture* m_pTex;
 };
 
