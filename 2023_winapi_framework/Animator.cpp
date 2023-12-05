@@ -33,11 +33,11 @@ void Animator::Render(HDC _dc)
 	m_pOwner->GetDir();
 	if (nullptr != m_pCurAnim)
 	{
-		m_pCurAnim->LeftRender(_dc);
-		/*if (m_pOwner->GetDir() == false)
+		//m_pCurAnim->LeftRender(_dc);
+		if (m_pOwner->GetDir() == false)
 			m_pCurAnim->LeftRender(_dc);
 		else if (m_pOwner->GetDir() == true)
-			m_pCurAnim->LeftRender(_dc);*/
+			m_pCurAnim->Render(_dc);
 	}
 }
 
