@@ -169,6 +169,12 @@
     <ClInclude Include="In_Game_Scene.h">
       <Filter>Engine\05. Scene\MainScene</Filter>
     </ClInclude>
+    <ClInclude Include="ResultScene.h">
+      <Filter>Engine\05. Scene\MainScene</Filter>
+    </ClInclude>
+    <ClInclude Include="RightPlayer.h">
+      <Filter>Engine\04. Object\MainObject\GameSceneObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc">
@@ -264,6 +270,12 @@
     </ClCompile>
     <ClCompile Include="In_Game_Scene.cpp">
       <Filter>Engine\05. Scene\MainScene</Filter>
+    </ClCompile>
+    <ClCompile Include="ResultScene.cpp">
+      <Filter>Engine\05. Scene\MainScene</Filter>
+    </ClCompile>
+    <ClCompile Include="RightPlayer.cpp">
+      <Filter>Engine\04. Object\MainObject\GameSceneObject</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

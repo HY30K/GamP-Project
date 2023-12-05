@@ -20,14 +20,14 @@ void Start_Scene::Init()
 	ResMgr::GetInst()->LoadSound(L"Shoot", L"Sound\\laserShoot.wav", false);
 	ResMgr::GetInst()->Play(L"BGM");
 	
-
+	Core::GetInst()->SetWinner(true);
 }
 
 void Start_Scene::Update()
 {
 	Scene::Update();
 	if(KEY_DOWN(KEY_TYPE::ENTER))
-		SceneMgr::GetInst()->LoadScene(L"Game_Scene");
+		SceneMgr::GetInst()->LoadScene(L"In_Game_Scene");
 }
 
 void Start_Scene::Render(HDC _dc)

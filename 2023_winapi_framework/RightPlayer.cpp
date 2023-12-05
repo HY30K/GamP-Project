@@ -1,50 +1,47 @@
 #include "pch.h"
-#include "LeftPlayer.h"
-#include "ResMgr.h"
+#include "RightPlayer.h"
 #include "Texture.h"
+#include "Core.h"
+#include "ResMgr.h"
 #include "KeyMgr.h"
 
-LeftPlayer::LeftPlayer():
-	//health(0)
-	//,coolTime(0)
+RightPlayer::RightPlayer() :
 	m_pTex(nullptr)
 {
 	m_pTex = ResMgr::GetInst()->TexLoad(L"Player", L"Texture\\plane.bmp");
 }
 
-LeftPlayer::~LeftPlayer()
+RightPlayer::~RightPlayer()
 {
 }
 
-void LeftPlayer::Update()
+void RightPlayer::Update()
 {
 	Vec2 vPos = GetPos();
 
-	if (KEY_PRESS(KEY_TYPE::W)) 
+	if (KEY_PRESS(KEY_TYPE::UP))
 	{
 		vPos.y -= 1;
 		//do jump
 	}
-	else if (KEY_PRESS(KEY_TYPE::A)) {
+	if (KEY_PRESS(KEY_TYPE::LEFT)) {
 		vPos.x -= 1;
 	}
-	else if (KEY_PRESS(KEY_TYPE::S)) {
-
-	}
-	else if (KEY_PRESS(KEY_TYPE::D)) {
+	if (KEY_PRESS(KEY_TYPE::RIGHT)) {
 		vPos.x += 1;
 	}
-	else if (KEY_PRESS(KEY_TYPE::F)) { //공격키 1 => 임시로 해놓음
+	if (KEY_PRESS(KEY_TYPE::PERIOD)) { //공격키 1 => 임시로 해놓음
 
 	}
-	else if (KEY_PRESS(KEY_TYPE::G)) { //공격키 2 => 이것도 임시로 해놓음
+	if (KEY_PRESS(KEY_TYPE::COMMA)) { //공격키 2 => 이것도 임시로 해놓음
 
 	}
 
 	SetPos(vPos);
+
 }
 
-void LeftPlayer::Render(HDC _dc)
+void RightPlayer::Render(HDC _dc)
 {
 	Vec2 vPos = GetPos();
 	Vec2 vScale = GetScale();
@@ -60,6 +57,7 @@ void LeftPlayer::Render(HDC _dc)
 	Component_Render(_dc);
 }
 
-void LeftPlayer::GetDamage(UINT damage)
+void RightPlayer::GetDamage(UINT damage)
 {
+
 }
