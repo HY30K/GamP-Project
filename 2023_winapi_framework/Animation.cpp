@@ -34,7 +34,6 @@ void Animation::Update()
 			m_CurFrame = 0;
 			m_fAccTime = 0.f;
 		}
-
 	}
 }
 
@@ -46,16 +45,16 @@ void Animation::Render(HDC _dc)
 	// 오프셋 적용
 	vPos = vPos + m_vecAnimFrame[m_CurFrame].vOffset;
 	TransparentBlt(_dc
-		,(int)(vPos.x - m_vecAnimFrame[m_CurFrame].vSlice.x /2.f)
-		,(int)(vPos.y - m_vecAnimFrame[m_CurFrame].vSlice.y / 2.f)
-		,(int)(m_vecAnimFrame[m_CurFrame].vSlice.x)
-		,(int)(m_vecAnimFrame[m_CurFrame].vSlice.y)
-		,m_pTex->GetDC()
-		,(int)(m_vecAnimFrame[m_CurFrame].vLT.x)
-		,(int)(m_vecAnimFrame[m_CurFrame].vLT.y)
-		,(int)(m_vecAnimFrame[m_CurFrame].vSlice.x)
-		,(int)(m_vecAnimFrame[m_CurFrame].vSlice.y)
-		,RGB(255,0,255));
+		, (int)(vPos.x - m_vecAnimFrame[m_CurFrame].vSlice.x / 2.f)
+		, (int)(vPos.y - m_vecAnimFrame[m_CurFrame].vSlice.y / 2.f)
+		, (int)(m_vecAnimFrame[m_CurFrame].vSlice.x)
+		, (int)(m_vecAnimFrame[m_CurFrame].vSlice.y)
+		, m_pTex->GetDC()
+		, (int)(m_vecAnimFrame[m_CurFrame].vLT.x)
+		, (int)(m_vecAnimFrame[m_CurFrame].vLT.y)
+		, (int)(m_vecAnimFrame[m_CurFrame].vSlice.x)
+		, (int)(m_vecAnimFrame[m_CurFrame].vSlice.y)
+		, RGB(255, 255, 255));
 }
 
 void Animation::LeftRender(HDC _dc)
@@ -66,7 +65,7 @@ void Animation::LeftRender(HDC _dc)
 	// 오프셋 적용
 	vPos = vPos + m_vecAnimFrame[m_CurFrame].vOffset;
 	StretchBlt(_dc
-		, (int)(vPos.x - m_vecAnimFrame[m_CurFrame].vSlice.x / 2.f 
+		, (int)(vPos.x - m_vecAnimFrame[m_CurFrame].vSlice.x / 2.f
 			+ (int)(m_vecAnimFrame[m_CurFrame].vSlice.x))
 		, (int)(vPos.y - m_vecAnimFrame[m_CurFrame].vSlice.y / 2.f)
 		, -(int)(m_vecAnimFrame[m_CurFrame].vSlice.x)

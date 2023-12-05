@@ -7,17 +7,14 @@
 void In_Game_Scene::Init()
 {
 	Object* pObj = new LeftPlayer;
-	pObj->SetPos((Vec2({ Core::GetInst()->GetResolution().x / 2, Core::GetInst()->GetResolution().y / 2 })));
+	pObj->SetPos((Vec2({ Core::GetInst()->GetResolution().x / 2 - 400, Core::GetInst()->GetResolution().y / 2 })));
 	pObj->SetScale(Vec2(100.f, 100.f));
 	AddObject(pObj, OBJECT_GROUP::PLAYER);
 
 	Object* rpObj = new RightPlayer;
-	rpObj->SetPos((Vec2({ Core::GetInst()->GetResolution().x / 2+200, Core::GetInst()->GetResolution().y / 2 })));
+	rpObj->SetPos((Vec2({ Core::GetInst()->GetResolution().x / 2 + 400, Core::GetInst()->GetResolution().y / 2 })));
 	rpObj->SetScale(Vec2(100.f, 100.f));
 	AddObject(rpObj, OBJECT_GROUP::PLAYER);
-
-
-
 }
 
 void In_Game_Scene::Update()

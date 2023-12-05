@@ -14,7 +14,7 @@ public:
 public:
 	void GetDamage(UINT damage);
 private:
-	int health;
+	//int health;
 
     Texture* m_pTex;
 
