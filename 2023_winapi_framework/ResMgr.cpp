@@ -80,7 +80,7 @@ void ResMgr::LoadSound(const wstring& _strKey, const wstring& _strReleativePath,
     FMOD_MODE eMode = FMOD_LOOP_NORMAL; // 반복 출력
     if (!_IsLoop)
         eMode = FMOD_DEFAULT; // 사운드 1번만 출력
-
+    
     tSoundInfo* ptSound = new tSoundInfo;
     ptSound->IsLoop = _IsLoop;
     // 사운드 객체를 만드는 것은 system임.

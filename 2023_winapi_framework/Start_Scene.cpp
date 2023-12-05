@@ -20,7 +20,7 @@ void Start_Scene::Init()
 	ResMgr::GetInst()->LoadSound(L"Shoot", L"Sound\\laserShoot.wav", false);
 	ResMgr::GetInst()->Play(L"BGM");
 	
-
+	Core::GetInst()->SetWinner(true);
 }
 
 void Start_Scene::Update()

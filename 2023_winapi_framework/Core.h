@@ -44,6 +44,12 @@ public:
 	{
 		return m_arrPen[(UINT)_eType];
 	}
+	void SetWinner(bool leftwon) {
+		isLeftWin = leftwon;
+	}
+	const bool& GetWinner() {
+		return isLeftWin;
+	}
 private:
 	void Update();
 	void Render();
@@ -56,5 +62,6 @@ private:
 	POINT	m_ptResolution; // ÇØ»óµµ
 	HBRUSH  m_arrBrush[(UINT)BRUSH_TYPE::END];
 	HPEN    m_arrPen[(UINT)PEN_TYPE::END];
+	bool		isLeftWin;
 };
 

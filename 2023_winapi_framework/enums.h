@@ -16,8 +16,9 @@ enum class KEY_TYPE
 	A,S,D,F,G,H,J,K,L,
 	Z,X,C,V,B,N,M,
 	CTRL, LALT, LSHIFT, SPACE,
-	ENTER, TAB, ESC, LBUTTON, RBUTTON, LAST
-	// LAST의미: 끝이라는 뜻이야
+	ENTER, TAB, ESC, LBUTTON, RBUTTON,
+	PERIOD,COMMA, LAST
+	// LAST의미: 끝이라는 뜻이야 (period = 온점,comma는 콤마)
 };
 
 enum class OBJECT_GROUP
