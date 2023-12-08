@@ -10,7 +10,8 @@ public:
 public:
 	void Update();
 	void Render(HDC _dc);
-
+private:
+	void CreateSlash();
 public:
 	void GetDamage(UINT damage);
 private:

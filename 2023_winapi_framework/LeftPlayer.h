@@ -12,7 +12,8 @@ public:
 public:
 	void Update();
 	void Render(HDC _dc);
-
+private:
+	void CreateSlash();
 public:
 	void GetDamage(int damage);
 	void SetHPBar();

@@ -198,6 +198,7 @@
     <ClInclude Include="SceneMgr.h" />
     <ClInclude Include="SelectGDI.h" />
     <ClInclude Include="Start_Scene.h" />
+    <ClInclude Include="Slash.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TimeMgr.h" />
@@ -231,6 +232,7 @@
     <ClCompile Include="SceneMgr.cpp" />
     <ClCompile Include="SelectGDI.cpp" />
     <ClCompile Include="Start_Scene.cpp" />
+    <ClCompile Include="Slash.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TimeMgr.cpp" />
     <ClCompile Include="Title.cpp" />

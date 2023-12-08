@@ -12,6 +12,7 @@
 #include "Animator.h"
 #include "Animation.h"
 #include "HPBar.h"
+#include "Slash.h"
 #include "Core.h"
 LeftPlayer::LeftPlayer()
 	: m_pTex(nullptr),
@@ -85,6 +86,19 @@ void LeftPlayer::Update()
 void LeftPlayer::Render(HDC _dc)
 {
 	Component_Render(_dc);
+}
+
+void LeftPlayer::CreateSlash()
+{
+	Slash* pSlash = new Slash;
+	Vec2 vSlashPos = GetPos();
+	vSlashPos.y -= GetScale().y / 2.f;
+	pSlash->SetPos(vSlashPos);
+	pSlash->SetScale(Vec2(25.f, 25.f));
+	pSlash->SetDir(Vec2(-10.f, -15.f));
+	pSlash->SetName(L"Player_Slash2");
+	SceneMgr::GetInst()->GetCurScene()->AddObject(pSlash,
+		OBJECT_GROUP::BULLET);
 }
 
 void LeftPlayer::GetDamage(int damage = 0)

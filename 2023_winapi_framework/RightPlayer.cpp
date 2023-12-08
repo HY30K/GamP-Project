@@ -2,7 +2,7 @@
 #include "RightPlayer.h"
 #include "KeyMgr.h"
 #include "TimeMgr.h"
-#include "Bullet.h"
+#include "Slash.h"
 #include "SceneMgr.h"
 #include "Scene.h"
 #include "Texture.h"
@@ -62,6 +62,8 @@ void RightPlayer::Update()
 	if (KEY_DOWN(KEY_TYPE::PERIOD))
 	{
 		//°ø°Ý Å° 1
+		CreateSlash();
+		ResMgr::GetInst()->Play(L"");
 		GetAnimator()->PlayAnim(L"Attack1", false, 1);
 	}
 	if (KEY_DOWN(KEY_TYPE::COMMA))
@@ -76,6 +78,19 @@ void RightPlayer::Update()
 
 	SetPos(vPos);
 	GetAnimator()->Update();
+}
+
+void RightPlayer::CreateSlash()
+{
+	Slash* pSlash = new Slash;
+	Vec2 vSlashPos = GetPos();
+	vSlashPos.y -= GetScale().y / 2.f;
+	pSlash->SetPos(vSlashPos);
+	pSlash->SetScale(Vec2(25.f, 25.f));
+	pSlash->SetDir(Vec2(-10.f, 0.f));
+	pSlash->SetName(L"Player_Slash");
+	SceneMgr::GetInst()->GetCurScene()->AddObject(pSlash,
+		OBJECT_GROUP::BULLET);
 }
 
 void RightPlayer::Render(HDC _dc)
