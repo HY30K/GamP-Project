@@ -42,6 +42,7 @@ LeftPlayer::LeftPlayer()
 
 	SetDir(true);
 	GetAnimator()->PlayAnim(L"Idle", true);
+	SetHPBar();
 }
 
 LeftPlayer::~LeftPlayer()
