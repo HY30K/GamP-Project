@@ -6,6 +6,7 @@ class HPBar :
 {
 public:
     HPBar();
+    HPBar(int maxhp);
     ~HPBar();
 
 public:
@@ -17,9 +18,6 @@ public:
 public:
     void SetHP(int hp) {
         m_nhp = hp;
-    }
-    void GiveDamage(int a) {
-        m_nhp -= a;
     }
 private:
     int m_nHeight;

@@ -75,6 +75,10 @@ void LeftPlayer::Update()
 		//°ø°Ý Å° 2
 		GetAnimator()->PlayAnim(L"Attack2", false, 1);
 	}
+	if (KEY_DOWN(KEY_TYPE::P)) {
+		GetAnimator()->PlayAnim(L"Hit", false, 1);
+		GetDamage(5);
+	}
 	if (KEY_UP(KEY_TYPE::A) || KEY_UP(KEY_TYPE::D))
 	{
 		GetAnimator()->PlayAnim(L"Idle", true);
@@ -102,7 +106,7 @@ void LeftPlayer::CreateSlash()
 		OBJECT_GROUP::BULLET);
 }
 
-void LeftPlayer::GetDamage(int damage = 0)
+void LeftPlayer::GetDamage(int damage)
 {
 	int leftHP = health - damage;
 	p_HPBar->SetHP(leftHP);
@@ -116,8 +120,10 @@ void LeftPlayer::SetHPBar()
 {
 	Vec2 vBulletPos = GetPos();
 	vBulletPos.y -= GetScale().y / 2.f;
+	p_HPBar = new HPBar(100);
 	p_HPBar->SetPos(vBulletPos);
 	p_HPBar->SetScale(Vec2(25.f, 25.f));
 	p_HPBar->SetName(L"Left_HP_BAR");
+	p_HPBar->SetHP(100);
 	SceneMgr::GetInst()->GetCurScene()->AddObject(p_HPBar, OBJECT_GROUP::UI);
 }
