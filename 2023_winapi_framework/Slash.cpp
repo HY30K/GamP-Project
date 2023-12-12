@@ -10,7 +10,7 @@ Slash::Slash()
 	, m_vDir(Vec2(0.f, 0.f))
 	, m_pTex(nullptr)
 {
-	m_pTex = ResMgr::GetInst()->TexLoad(L"Slash", L"Player\\SlashLeft.bmp");
+	m_pTex = ResMgr::GetInst()->TexLoad(L"SlashL", L"Player\\SlashLeft.bmp");
 	CreateCollider();
 }
 

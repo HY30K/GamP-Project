@@ -103,9 +103,9 @@ void LeftPlayer::CreateSlash()
 	pSlash->SetPos(vSlashPos);
 	pSlash->SetScale(Vec2(25.f, 25.f));
 	pSlash->SetDir(Vec2(5.f, 0.f));
-	pSlash->SetName(L"Player_Slash2");
+	pSlash->SetName(L"Player_Slash1");
 	SceneMgr::GetInst()->GetCurScene()->AddObject(pSlash,
-		OBJECT_GROUP::BULLET);
+		OBJECT_GROUP::SLASH1);
 }
 
 void LeftPlayer::GetDamage(int damage)

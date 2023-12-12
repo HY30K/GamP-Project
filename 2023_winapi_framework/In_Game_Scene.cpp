@@ -9,12 +9,15 @@ void In_Game_Scene::Init()
 	Object* pObj = new LeftPlayer;
 	pObj->SetPos((Vec2({ Core::GetInst()->GetResolution().x / 2 - 400, Core::GetInst()->GetResolution().y / 2 })));
 	pObj->SetScale(Vec2(100.f, 100.f));
-	AddObject(pObj, OBJECT_GROUP::PLAYER);
+	AddObject(pObj, OBJECT_GROUP::PLAYER1);
 
 	Object* rpObj = new RightPlayer;
 	rpObj->SetPos((Vec2({ Core::GetInst()->GetResolution().x / 2 + 400, Core::GetInst()->GetResolution().y / 2 })));
 	rpObj->SetScale(Vec2(100.f, 100.f));
-	AddObject(rpObj, OBJECT_GROUP::PLAYER);
+	AddObject(rpObj, OBJECT_GROUP::PLAYER2);
+
+	CollisionMgr::GetInst()->CheckGroup(OBJECT_GROUP::SLASH1, OBJECT_GROUP::PLAYER2);
+	CollisionMgr::GetInst()->CheckGroup(OBJECT_GROUP::SLASH2, OBJECT_GROUP::PLAYER1);
 }
 
 void In_Game_Scene::Update()

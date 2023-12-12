@@ -88,9 +88,9 @@ void RightPlayer::CreateSlash()
 	pSlash->SetPos(vSlashPos);
 	pSlash->SetScale(Vec2(25.f, 25.f));
 	pSlash->SetDir(Vec2(-5.f, 0.f));
-	pSlash->SetName(L"Player_Slash");
+	pSlash->SetName(L"Player_Slash2");
 	SceneMgr::GetInst()->GetCurScene()->AddObject(pSlash,
-		OBJECT_GROUP::BULLET);
+		OBJECT_GROUP::SLASH2);
 }
 
 void RightPlayer::Render(HDC _dc)
