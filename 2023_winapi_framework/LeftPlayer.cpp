@@ -12,7 +12,7 @@
 #include "Animator.h"
 #include "Animation.h"
 #include "HPBar.h"
-#include "Slash.h"
+#include "SlashR.h"
 #include "Core.h"
 LeftPlayer::LeftPlayer()
 	: m_pTex(nullptr),
@@ -68,6 +68,8 @@ void LeftPlayer::Update()
 	if (KEY_DOWN(KEY_TYPE::F))
 	{
 		//°ø°Ý Å° 1
+		CreateSlash();
+		ResMgr::GetInst()->Play(L"ShootR");
 		GetAnimator()->PlayAnim(L"Attack1", false, 1);
 	}
 	if (KEY_PRESS(KEY_TYPE::G))
@@ -95,12 +97,12 @@ void LeftPlayer::Render(HDC _dc)
 
 void LeftPlayer::CreateSlash()
 {
-	Slash* pSlash = new Slash;
+	SlashR* pSlash = new SlashR;
 	Vec2 vSlashPos = GetPos();
-	vSlashPos.y -= GetScale().y / 2.f;
+	vSlashPos.y -= GetScale().y / 6;
 	pSlash->SetPos(vSlashPos);
 	pSlash->SetScale(Vec2(25.f, 25.f));
-	pSlash->SetDir(Vec2(-10.f, -15.f));
+	pSlash->SetDir(Vec2(5.f, 0.f));
 	pSlash->SetName(L"Player_Slash2");
 	SceneMgr::GetInst()->GetCurScene()->AddObject(pSlash,
 		OBJECT_GROUP::BULLET);

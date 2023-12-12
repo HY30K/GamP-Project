@@ -63,7 +63,7 @@ void RightPlayer::Update()
 	{
 		//°ø°Ý Å° 1
 		CreateSlash();
-		ResMgr::GetInst()->Play(L"");
+		ResMgr::GetInst()->Play(L"Shoot");
 		GetAnimator()->PlayAnim(L"Attack1", false, 1);
 	}
 	if (KEY_DOWN(KEY_TYPE::COMMA))
@@ -84,10 +84,10 @@ void RightPlayer::CreateSlash()
 {
 	Slash* pSlash = new Slash;
 	Vec2 vSlashPos = GetPos();
-	vSlashPos.y -= GetScale().y / 2.f;
+	vSlashPos.y -= GetScale().y / 6;
 	pSlash->SetPos(vSlashPos);
 	pSlash->SetScale(Vec2(25.f, 25.f));
-	pSlash->SetDir(Vec2(-10.f, 0.f));
+	pSlash->SetDir(Vec2(-5.f, 0.f));
 	pSlash->SetName(L"Player_Slash");
 	SceneMgr::GetInst()->GetCurScene()->AddObject(pSlash,
 		OBJECT_GROUP::BULLET);

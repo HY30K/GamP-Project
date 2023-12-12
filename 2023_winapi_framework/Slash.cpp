@@ -10,7 +10,7 @@ Slash::Slash()
 	, m_vDir(Vec2(0.f, 0.f))
 	, m_pTex(nullptr)
 {
-	m_pTex = ResMgr::GetInst()->TexLoad(L"Sword", L"Player\\Slash.bmp");
+	m_pTex = ResMgr::GetInst()->TexLoad(L"Slash", L"Player\\SlashLeft.bmp");
 	CreateCollider();
 }
 
@@ -33,11 +33,11 @@ void Slash::Render(HDC _dc)
 	int Width = m_pTex->GetWidth();
 	int Height = m_pTex->GetHeight();
 
-	/*TransparentBlt(_dc
+	TransparentBlt(_dc
 		, (int)(vPos.x - vScale.x / 2)
-		, (int)(vPos.y - vScale.y / 2)
-		, Width, Height, m_pTex->GetDC()
-		, 0, 0, Width, Height, RGB(255, 255, 255));*/
+		, (int)(vPos.y - vScale.y / 2 - 30)
+		, vScale.x + 100, vScale.y + 100, m_pTex->GetDC()
+		, 0, 0, Width, Height, RGB(255, 255, 255));
 	/*Stretchblt(_dc
 		, (int)(vPos.x - vScale.x / 2)
 		, (int)(vPos.y - vScale.y / 2)
