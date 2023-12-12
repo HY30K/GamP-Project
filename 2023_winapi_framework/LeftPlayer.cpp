@@ -127,7 +127,7 @@ void LeftPlayer::CreateSlash()
 
 void LeftPlayer::GetDamage(int damage)
 {
-	int leftHP = health - damage;
+	int leftHP = p_HPBar->GetHP() - damage;
 	p_HPBar->SetHP(leftHP);
 	if (leftHP <= 0) {
 		Core::GetInst()->SetWinner(false);
@@ -139,10 +139,9 @@ void LeftPlayer::SetHPBar()
 {
 	Vec2 vBulletPos = GetPos();
 	vBulletPos.y -= GetScale().y / 2.f;
-	p_HPBar = new HPBar(100);
+	p_HPBar = new HPBar(100,true);
 	p_HPBar->SetPos(vBulletPos);
 	p_HPBar->SetScale(Vec2(25.f, 25.f));
 	p_HPBar->SetName(L"Left_HP_BAR");
-	p_HPBar->SetHP(100);
 	SceneMgr::GetInst()->GetCurScene()->AddObject(p_HPBar, OBJECT_GROUP::UI);
 }
