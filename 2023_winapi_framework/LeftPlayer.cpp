@@ -95,6 +95,23 @@ void LeftPlayer::Render(HDC _dc)
 	Component_Render(_dc);
 }
 
+void LeftPlayer::EnterCollision(Collider* _pOther)
+{
+	const Object* pOtherObj = _pOther->GetObj();
+	if (pOtherObj->GetName() == L"Player_Slash2")
+	{
+		//ÇÇ¸¦ ±ð¾ÆÁÖ¸é µÊ.
+	}
+}
+
+void LeftPlayer::ExitCollision(Collider* _pOther)
+{
+}
+
+void LeftPlayer::StayCollision(Collider* _pOther)
+{
+}
+
 void LeftPlayer::CreateSlash()
 {
 	SlashR* pSlash = new SlashR;

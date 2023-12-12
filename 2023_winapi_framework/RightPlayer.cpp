@@ -98,6 +98,23 @@ void RightPlayer::Render(HDC _dc)
 	Component_Render(_dc);
 }
 
+void RightPlayer::EnterCollision(Collider* _pOther)
+{
+	const Object* pOtherObj = _pOther->GetObj();
+	if (pOtherObj->GetName() == L"Player_Slash1")
+	{
+		//ÇÇ¸¦ ±ð¾ÆÁÖ¸é µÊ.
+	}
+}
+
+void RightPlayer::ExitCollision(Collider* _pOther)
+{
+}
+
+void RightPlayer::StayCollision(Collider* _pOther)
+{
+}
+
 void RightPlayer::GetDamage(UINT damage)
 {
 
