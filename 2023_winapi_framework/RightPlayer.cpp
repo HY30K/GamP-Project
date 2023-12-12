@@ -11,6 +11,8 @@
 #include "Collider.h"
 #include "Animator.h"
 #include "Animation.h"
+#include "HPBar.h"
+#include "Core.h"
 RightPlayer::RightPlayer() :
 	m_pTex(nullptr)
 {
@@ -37,6 +39,7 @@ RightPlayer::RightPlayer() :
 		Vec2(200.f, 200.f), Vec2(200.f, 0.f), 3, 0.1f);
 
 	GetAnimator()->PlayAnim(L"Idle", true);
+	SetHPBar();
 }
 
 RightPlayer::~RightPlayer()
@@ -71,6 +74,10 @@ void RightPlayer::Update()
 		//°ø°Ý Å° 2
 		GetAnimator()->PlayAnim(L"Attack2", false, 1);
 	}
+	if (KEY_DOWN(KEY_TYPE::L)) {
+		GetAnimator()->PlayAnim(L"Hit", false, 1);
+		GetDamage(5);
+	}
 	if (KEY_UP(KEY_TYPE::LEFT) || KEY_UP(KEY_TYPE::RIGHT))
 	{
 		GetAnimator()->PlayAnim(L"Idle", true);
@@ -100,5 +107,20 @@ void RightPlayer::Render(HDC _dc)
 
 void RightPlayer::GetDamage(UINT damage)
 {
+	int leftHP = p_HPBar->GetHP() - damage;
+	p_HPBar->SetHP(leftHP);
+	if (leftHP <= 0) {
+		Core::GetInst()->SetWinner(false);
+		SceneMgr::GetInst()->LoadScene(L"Resultscene");
+	}
+}
 
+void RightPlayer::SetHPBar()
+{
+	Vec2 hpbarPos = Vec2(880, 0);
+	p_HPBar = new HPBar(100,false);
+	p_HPBar->SetPos(hpbarPos);
+	p_HPBar->SetScale(Vec2(25.f, 25.f));
+	p_HPBar->SetName(L"Right_HP_BAR");
+	SceneMgr::GetInst()->GetCurScene()->AddObject(p_HPBar, OBJECT_GROUP::UI);
 }
