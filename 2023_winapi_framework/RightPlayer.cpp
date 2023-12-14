@@ -66,16 +66,19 @@ void RightPlayer::Update()
 	{
 		//공격 키 1
 		CreateSlash();
-		ResMgr::GetInst()->Play(L"Shoot");
+		ResMgr::GetInst()->Play(L"Attack");
 		GetAnimator()->PlayAnim(L"Attack1", false, 1);
 	}
 	if (KEY_DOWN(KEY_TYPE::COMMA))
 	{
 		//공격 키 2
+		ResMgr::GetInst()->Play(L"Defense");
 		GetAnimator()->PlayAnim(L"Attack2", false, 1);
 	}
-	if (KEY_DOWN(KEY_TYPE::L)) {
+	if (KEY_DOWN(KEY_TYPE::L)) 
+	{
 		GetAnimator()->PlayAnim(L"Hit", false, 1);
+		ResMgr::GetInst()->Play(L"Hit");
 		GetDamage(5);
 	}
 	if (KEY_UP(KEY_TYPE::LEFT) || KEY_UP(KEY_TYPE::RIGHT))

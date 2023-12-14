@@ -69,7 +69,6 @@ void LeftPlayer::Update()
 	{
 		//°ø°Ý Å° 1
 		CreateSlash();
-		ResMgr::GetInst()->Play(L"ShootR");
 		GetAnimator()->PlayAnim(L"Attack1", false, 1);
 	}
 	if (KEY_PRESS(KEY_TYPE::G))
