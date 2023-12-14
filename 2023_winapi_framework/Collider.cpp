@@ -43,6 +43,8 @@ void Collider::Render(HDC _dc)
 void Collider::EnterCollision(Collider* _pOther)
 {
  	++m_check;
+	if (this->m_pOwner == nullptr)
+		return;
 	m_pOwner->EnterCollision(_pOther);
 }
 

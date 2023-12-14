@@ -47,7 +47,7 @@ public:
 	void SetWinner(bool leftwon) {
 		isLeftWin = leftwon;
 	}
-	const bool& GetWinner() {
+	const bool GetWinner() const{
 		return isLeftWin;
 	}
 private:
