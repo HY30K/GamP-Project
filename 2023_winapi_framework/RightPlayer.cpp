@@ -13,6 +13,7 @@
 #include "Animation.h"
 #include "HPBar.h"
 #include "Core.h"
+#include "EventMgr.h"
 RightPlayer::RightPlayer() :
 	m_pTex(nullptr)
 {
@@ -107,10 +108,14 @@ void RightPlayer::Render(HDC _dc)
 
 void RightPlayer::EnterCollision(Collider* _pOther)
 {
+	if (_pOther == nullptr)
+		return;
 	const Object* pOtherObj = _pOther->GetObj();
 	if (pOtherObj->GetName() == L"Player_Slash1")
 	{
 		//ÇÇ¸¦ ±ð¾ÆÁÖ¸é µÊ.
+		GetAnimator()->PlayAnim(L"Hit", false, 1);
+		GetDamage(5);
 	}
 }
 
@@ -127,8 +132,8 @@ void RightPlayer::GetDamage(UINT damage)
 	int leftHP = p_HPBar->GetHP() - damage;
 	p_HPBar->SetHP(leftHP);
 	if (leftHP <= 0) {
-		Core::GetInst()->SetWinner(false);
-		SceneMgr::GetInst()->LoadScene(L"Resultscene");
+		Core::GetInst()->SetWinner(true);
+		EventMgr::GetInst()->SceneChange(L"ResultScene");
 	}
 }
 

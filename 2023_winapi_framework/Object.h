@@ -38,8 +38,8 @@ public:
 	bool GetIsDead() const { return !m_IsAlive; }
 	//bool GetDir() const { return !m_bDir; }
 	//void SetDir() { m_bDir = false; }
-private:
 	void SetDead() { m_IsAlive = false; }
+private:
 	friend class EventMgr;
 public:
 	void CreateCollider();

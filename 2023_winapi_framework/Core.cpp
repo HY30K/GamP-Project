@@ -62,6 +62,7 @@ void Core::Update()
 	// === Manager Update === 
 	TimeMgr::GetInst()->Update();
 	KeyMgr::GetInst()->Update();
+
 	SceneMgr::GetInst()->Update();
 	CollisionMgr::GetInst()->Update();
 //	Vec2 vPos = m_obj.GetPos();

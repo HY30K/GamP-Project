@@ -12,6 +12,7 @@ class EventMgr
 public:
 	void Update();
 	void DeleteObject(Object* _pObj);
+	void SceneChange(const wstring& _scenename);
 private:
 	void Excute(const tEvent& _eve);
 private:
