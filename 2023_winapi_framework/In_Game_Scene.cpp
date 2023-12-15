@@ -5,9 +5,15 @@
 #include "Rightplayer.h"
 #include "CollisionMgr.h"
 #include "ResMgr.h"
+#include "Background.h"
 
 void In_Game_Scene::Init()
 {
+	Object* tObj = new Background;
+	tObj->SetPos((Vec2({ Core::GetInst()->GetResolution().x / 2, Core::GetInst()->GetResolution().y / 2 })));
+	tObj->SetScale(Vec2(100.f, 100.f));
+	AddObject(tObj, OBJECT_GROUP::DEFAULT);
+
 	Object* pObj = new LeftPlayer;
 	pObj->SetPos((Vec2({ Core::GetInst()->GetResolution().x / 2 - 400, Core::GetInst()->GetResolution().y / 2 })));
 	pObj->SetScale(Vec2(100.f, 100.f));

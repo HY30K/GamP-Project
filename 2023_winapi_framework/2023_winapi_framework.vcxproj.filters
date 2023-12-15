@@ -184,6 +184,9 @@
     <ClInclude Include="SlashR.h">
       <Filter>Engine\04. Object\MainObject\GameSceneObject</Filter>
     </ClInclude>
+    <ClInclude Include="Background.h">
+      <Filter>Engine\04. Object\MainObject\GameSceneObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc">
@@ -293,6 +296,9 @@
       <Filter>Engine\04. Object\MainObject\GameSceneObject</Filter>
     </ClCompile>
     <ClCompile Include="SlashR.cpp">
+      <Filter>Engine\04. Object\MainObject\GameSceneObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Background.cpp">
       <Filter>Engine\04. Object\MainObject\GameSceneObject</Filter>
     </ClCompile>
   </ItemGroup>
