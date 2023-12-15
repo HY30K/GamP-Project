@@ -7,7 +7,7 @@
 Background::Background()
 	: m_pTex(nullptr)
 {
-	m_pTex = ResMgr::GetInst()->TexLoad(L"Background", L"Texture\\gameBackground.bmp");
+	m_pTex = ResMgr::GetInst()->TexLoad(L"Background", L"Texture\\background1.bmp");
 }
 
 Background::~Background()
@@ -16,4 +16,13 @@ Background::~Background()
 
 void Background::Render(HDC _dc)
 {
+	POINT point = Core::GetInst()->GetResolution();
+
+	StretchBlt(_dc
+		, 0
+		, 0
+		, point.x, point.y, m_pTex->GetDC()
+		, 0, 0, point.x - 800, point.y - 480, SRCCOPY);
+
+	Component_Render(_dc);
 }

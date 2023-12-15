@@ -23,7 +23,6 @@ enum class KEY_TYPE
 
 enum class OBJECT_GROUP
 {
-	UI,
 	DEFAULT,
 	PLAYER,
 	PLAYER1,
@@ -32,6 +31,7 @@ enum class OBJECT_GROUP
 	SLASH1,
 	SLASH2,
 	ENEMY,
+	UI,
 	END = 30
 };
 
