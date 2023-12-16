@@ -50,15 +50,14 @@ void HPBar::Render(HDC _dc)
 		m_pbgTex->GetDC(), 0, 0, SRCCOPY);
 	if (m_nhp > 0 && !m_isLeft) {
 		Vec2 resolution = Core::GetInst()->GetResolution();
-		StretchBlt(_dc, resolution.x - (m_nWidth * m_nhp * m_fSize * 0.001) + (10 * m_nhp / 75) , pos.y + 10, (m_nWidth * m_nhp * m_fSize * 0.001f) - 10, pos.y + m_nHeight - 10,
+		StretchBlt(_dc, resolution.x - (m_nWidth * m_nhp * m_fSize * 0.001) + (10 * m_nhp / 75) ,
+			pos.y + 10, (m_nWidth * m_nhp * m_fSize * 0.001f) - 10, pos.y + m_nHeight - 10,
 			m_pTex->GetDC(), 10, 10, x, y, SRCCOPY);
 	}
 	else if (m_nhp > 0 && m_isLeft) {
 		StretchBlt(_dc, pos.x + 10, pos.y + 10, pos.x + (m_nWidth * m_nhp * m_fSize * 0.001f) - 10, pos.y + m_nHeight - 10,
 			m_pTex->GetDC(), 10, 10, x, y, SRCCOPY);
 	}
-		//BitBlt(_dc, pos.x+10, pos.y+10, pos.x + (m_nWidth * m_nhp * m_fSize * 0.01f)-10, pos.y + m_nHeight-20,
-		//	m_pTex->GetDC(), 0, 0, SRCCOPY);,
 }
 
 void HPBar::Release()

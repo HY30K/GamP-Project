@@ -5,9 +5,8 @@
 #include "Core.h"
 
 Background::Background()
-	: m_pTex(nullptr)
 {
-	m_pTex = ResMgr::GetInst()->TexLoad(L"Background", L"Texture\\background1.bmp");
+	m_pTex = ResMgr::GetInst()->TexLoad(L"Background", L"Texture\\building_04.bmp");
 }
 
 Background::~Background()
@@ -18,11 +17,11 @@ void Background::Render(HDC _dc)
 {
 	POINT point = Core::GetInst()->GetResolution();
 
-	StretchBlt(_dc
-		, 0
-		, 0
-		, point.x, point.y, m_pTex->GetDC()
-		, 0, 0, point.x - 800, point.y - 480, SRCCOPY);
+		StretchBlt(_dc
+			, 80
+			, 0
+			, point.x, point.y, m_pTex->GetDC()
+			, 0, 0, point.x - 850, point.y - 469, SRCCOPY);
 
 	Component_Render(_dc);
 }

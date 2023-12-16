@@ -23,8 +23,8 @@ enum class KEY_TYPE
 
 enum class OBJECT_GROUP
 {
-	DEFAULT,
 	PLAYER,
+	DEFAULT,
 	PLAYER1,
 	PLAYER2,
 	BULLET,
