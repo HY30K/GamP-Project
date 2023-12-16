@@ -11,6 +11,6 @@ public:
     virtual void Release() override;
 private:
     Texture* m_pTex;
-    wstring GameName = L"집 가고 싶다";
+    wstring GameName = L"Slash Battle";
 };
 

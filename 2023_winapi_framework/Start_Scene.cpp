@@ -38,7 +38,7 @@ void Start_Scene::Render(HDC _dc)
 	SetTextColor(_dc, RGB(255, 255, 255));
 	HFONT nameFont = CreateFont(80, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 	SelectObject(_dc, nameFont);
-	TextOutW(_dc, (Core::GetInst()->GetResolution().x - GameName.size() * 60)/2, 20, GameName.c_str(), GameName.size());
+	TextOutW(_dc, (Core::GetInst()->GetResolution().x - GameName.size() * 60)/2 + 120, 20, GameName.c_str(), GameName.size());
 	HFONT infoFont = CreateFont(20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 	SelectObject(_dc, infoFont);
 	TextOutW(_dc, 525, 550, L"Press Enter To Start", 20);
