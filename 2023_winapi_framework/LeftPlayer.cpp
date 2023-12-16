@@ -72,15 +72,6 @@ void LeftPlayer::Update()
 		CreateSlash();
 		GetAnimator()->PlayAnim(L"Attack1", false, 1);
 	}
-	if (KEY_PRESS(KEY_TYPE::G))
-	{
-		//°ø°Ý Å° 2
-		GetAnimator()->PlayAnim(L"Attack2", false, 1);
-	}
-	if (KEY_DOWN(KEY_TYPE::P)) {
-		GetAnimator()->PlayAnim(L"Hit", false, 1);
-		GetDamage(5);
-	}
 	if (KEY_UP(KEY_TYPE::A) || KEY_UP(KEY_TYPE::D))
 	{
 		GetAnimator()->PlayAnim(L"Idle", true);

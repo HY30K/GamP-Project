@@ -37,9 +37,6 @@ void HPBar::Init()
 
 void HPBar::Update()
 {
-	if (KEY_DOWN(KEY_TYPE::C)) {
-		m_nhp -= 10;
-	}
 }
 
 void HPBar::Render(HDC _dc)
